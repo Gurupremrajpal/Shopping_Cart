@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Screen</title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+</head>
+<body class = "loginBody">
+<div class="form">
+<h2>Sign up</h2>
+<form action="/user/signup" method="POST">
+  <div class="input">
+    <div class="inputBox">
+      <label>Enter Username</label>
+      <input type="text" name="username">
+    </div>
+    <div class="inputBox">
+      <label>Enter Password:</label>
+      <input type="password" name="password">
+    </div>
+    <div class="inputBox">
+      <label>Enter first name:</label>
+      <input type="text" name="first_name">
+    </div>
+    <div class="inputBox">
+      <label>Enter last name:</label>
+      <input type="text" name="last_name">
+    </div>
+    <div class="inputBox">
+      <label>Enter email id:</label>
+      <input type="email" name="email_id">
+    </div> 
+    <label id="gen">Gender:</label>
+    <div class="inputBox2">
+      <label for="M">Male</label>
+      <input type="radio" id="male" name="gender" value="M" checked> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <label for="F">Female</label>
+      <input type="radio" id="female" name="gender" value="F">
+    </div>
+    <div class="inputBox">
+      <input type="submit" name="" value="Register">
+    </div>
+  </div>
+ </form>
+</div>
+
+  <% if(typeof message != "undefined"){%>
+  <%= message %>
+  <%}%>
+
+</body>
+</html>

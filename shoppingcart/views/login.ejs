@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Screen</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+</head>
+<body class = "loginBody">
+
+<div class="form">
+  <h2>Login</h2>
+  <form method = "POST" action = "/login">
+    <div class="input">
+        <div class="inputBox">
+            <label>Username</label>
+            <input type="text" name="username">
+        </div>
+        <div class="inputBox">
+              <label>Password</label>
+              <input type="password" name="pwd">
+        </div>
+        <div class="inputBox">
+          <input type="submit" name="" value="Sign In"> 
+        </div>
+      </div>  
+      <p class="forgot">New user? <a href="/user/signup">Sign up</a></p>
+  </form>
+</div>
+
+  <% if(typeof error != "undefined") { %>
+    <%= error %> 
+  <% } %>
+
+</body>
+</html>

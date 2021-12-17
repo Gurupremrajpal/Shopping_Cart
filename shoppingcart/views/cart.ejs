@@ -1,0 +1,153 @@
+<html>
+
+<head>
+
+    <title>Cart</title>
+    <script src = "/js/cart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<!-- Import bootstrap cdn -->
+    <link rel="stylesheet" href=
+"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity=
+"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+        crossorigin="anonymous">
+  
+    <!-- Import jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity=
+"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous">
+    </script>
+      
+    <script src=
+"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity=
+"sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous">
+    </script>
+    <style>
+tr, td{
+border:1px gray solid;
+text-align: right;
+padding:5px;
+}
+
+body, th {
+text-align: center;
+}
+
+table {
+margin: 0 auto;
+}
+    </style>
+</head>
+
+<body class = "center">
+<div class="card text-center">
+  <h2 class="card-header">BuyMore electronics</h2>
+  <div class="card-body">
+    <p class="card-text">
+  <nav class="a">
+      <center>
+  <a href="/products" id="current" class="btn btn-dark"> Home page </a>
+  <% if(userRole == 'ADMIN') { %>
+    <a href="/product/add" class="btn btn-success" role="button">Add Product</a>
+    <a href="/users" class="btn btn-warning" role="button">User List</a>
+  <% }%>
+  <a href="/profile" class="btn btn-info" role="button">My Profile</a>
+  <a href="/cart" class="text-right goToCartBtn btn btn-primary">Go to Cart</a> 
+        <a href="/logout" class="btn btn-danger" role="button"> Logout </a>
+      </center>
+  </nav>
+  <hr>
+  <p class="btn btn-light btn-lg btn-block">CART</p>
+</div>
+<% if(typeof message != "undefined"){%>
+           <div class = "text-light bg-success"> <%= message %> </div>
+        <%} else if(typeof emptyProductsMessage != "undefined") {%>
+          <div> <%= emptyProductsMessage %> </div>
+        <%} else {%>
+<div>
+  <form method = "POST" action="/checkout">
+    <table id = "shoppingCart">
+
+    <tr>
+
+        <th>Product</th>
+
+        <th>Unit Price</th>
+
+        <th> Quantity </th>
+
+        <th>Total</th>
+        <th></th>
+
+    </tr>
+    <% for(let i = 0; i < products.length; i++){%>
+      <tr>
+        <input type="hidden" name="userId" value="<%=userId%>">
+        <input type="hidden" name="productId" value="<%=products[i].id%>">
+        <td> <%= products[i].name%> </td>
+        <td id = "price<%=i%>"> <%= products[i].price%> </td>
+        <td id = "qty<%=i%>"> <input type = "text" name="product_cart_quantity" placeholder="Enter product quantity" value="1" size = 5 onChange="mapData(<%=i%>, value, <%= products[i].price%>)"> </td>
+        <td id = "total<%=i%>"> <%= products[i].price%> </td>
+        <td><a href="/user/products/delete?product_id=<%= products[i].id%>" class="btn btn-danger">
+                <img src = "/img/trash.svg">
+              </button></td>
+      </tr>
+	<%}%>
+
+		<tr>
+
+			<td>Shipping</td>
+
+			<td> </td>
+
+			<td> </td>
+
+			<td id="totalShipping"> </td>
+
+		</tr>
+
+		<tr>
+
+			<td>Total</td>
+
+			<td> </td>
+
+			<td> </td>
+
+			<td id="subTotal"> <%= productTotal %> </td>
+
+		</tr>
+
+	</table>
+
+    	<br><br>    
+
+    <h3>Shipping & handling</h3> 
+ <select id="shippingDrop" onchange="applyShipping()">
+     <option value="">Select One</option>
+     <option value="nxtday">Next-day Delivery: $25.00</option>
+     <option value="threeday">Three-day Delivery: $20.00</option>
+     <option value="regular">Regular Delivery: $7.00</option>
+ </select>
+ <br><br>
+  <button class="btn btn-success">Checkout</button>
+</form>
+<div>
+<%}%>
+    <br>
+    <br>
+    <hr>
+<div class = "footer">
+  <p> The project is based on an Online Shopping cart which sells electronic items.</p>
+<div>
+</body>
+
+</html>
+
