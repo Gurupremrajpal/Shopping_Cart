@@ -7,6 +7,34 @@
 <img src="Website/Login.png"> </img>
 <br>
 
+<label><b>Sign up Functionality</b></label>
+<img src="Website/Sign Up.png"> </img>
+<br>
+
+<label><b>User-Home page/Product list</b></label>
+<img src="Website/User-Home page:Product list.png"> </img>
+<br>
+
+<label><b>Admin-Home page:Product list</b></label>
+<img src="Website/Admin-Home page:Product list.png"> </img>
+<br>
+
+<label><b>Add product page</b></label>
+<img src="Website/Add product page.png"> </img>
+<br>
+
+<label><b>Profile page</b></label>
+<img src="Website/Profile page.png"> </img>
+<br>
+
+<label><b>Cart</b></label>
+<img src="Website/Cart.png"> </img>
+<br>
+
+<label><b>Purchase successful page (Basically the cart after completing the transaction)</b></label>
+<img src="Website/Purchase successful page (Basically the cart after completing the transaction).png"> </img>
+<br>
+
 # Tech Stack used - 
 Front-end : HTML5, CSS3, Bootstrap <br>
 Back-end : JavaScript, jQuery, Node.JS, Express, EJS, MySQL <br>
