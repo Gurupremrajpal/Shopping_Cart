@@ -4,8 +4,7 @@
 <br>
 
 <label><b>Login Functionality</b></label>
-<img src="Shopping
-_Cart/Webiste/Login.png"> </img>
+<img src="Website/Login.png"> </img>
 <br>
 
 # Tech Stack used - 
